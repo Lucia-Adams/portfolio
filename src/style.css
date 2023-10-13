@@ -1,0 +1,737 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,900;1,200;1,300;1,400&family=Vollkorn:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz@1,6..96&family=Explora&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,900;1,200;1,300;1,400&family=Vollkorn:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz@1,6..96&family=Explora&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,900;1,200;1,300;1,400&family=Urbanist:wght@100&family=Vollkorn:wght@400;600&display=swap');
+
+
+/* https://codepen.io/zastrow/pen/LYdNPOE */
+
+*{
+  margin: 0;
+  padding: 0;
+  /* means padding etc included in width  */
+  box-sizing: border-box; 
+  font-family: 'Source Code Pro', monospace;
+
+}
+
+body{
+  background: #ebebeb;
+  color: black;
+}
+
+
+section{
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* centre it and on scroll set colour to blank */
+section .binary{
+  /* position: fixed; */
+  position: absolute;
+  /* margin-top: min(160px,20vh); nav bar height */
+  height: 75vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  overflow-y: hidden;
+  flex-wrap: wrap;
+  z-index: -5;
+  translate: 0 40px; 
+}
+
+section .binary-row{
+  height: 25vh;
+  /* min-height: fit-content; */
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  z-index: -5;
+  justify-content: center;
+}
+
+section .binary_num{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  min-height: fit-content;
+  width: 12vw;
+  text-align: center;
+  font-size: min(25vh,12vw);
+  font-weight: 100;
+  color: #c4c4c4;
+  font-family: 'Urbanist', sans-serif;
+}
+
+section .binary_num.fade_1{
+  animation: in_out_1 7s infinite;
+}
+
+section .binary_num.fade_2{
+  animation: in_out_2 7s infinite;
+}
+
+section .binary_num.fade_3{
+  animation: in_out_1 8s infinite;
+}
+
+
+/* section .binary-row #stick{
+  position: sticky;
+} */
+
+/* Would do info box */
+/* .slide-box{
+  height: 90vh;
+  width: 90vw;
+  display: flex;
+  overflow: hidden;
+}
+
+.slide-box section{
+  width: 120vw;
+  line-height: 1em;
+  font-size: 6em;
+
+  min-height: unset;
+  display: unset;
+  justify-content: unset;
+  align-items: unset;
+
+} */
+
+/* .wrap{
+  display: flex;
+  height: 100%;
+} */
+
+/* .section {
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: -200px;
+} */
+
+/* .wrapper{
+  background-color: white;
+  height: 800px;
+  width: 800px;
+  position: relative;
+  z-index: 0;
+}
+
+.hawk{
+  background-color: #d7a46d;
+  height: 275px;
+  width: 400px;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  border-radius: 50% 50% 50% 50% / 85% 85% 15% 15%;
+} */
+
+/* 
+.hawk::after{
+  content: "";
+  height: 200px;
+  width: 500px;
+  position: absolute;
+  margin: auto;
+  left:0;
+  right: 0;
+  background-color: #d7a46d;
+  border-radius:50% 50% 50% 50% / 85% 85% 15% 15%;
+  bottom: -30px;
+  z-index: -1;
+} */
+
+
+
+section .container{
+  margin: 100px;
+  background-color: #ebebeb;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+section #title{
+  translate: 0 40px; 
+}
+
+section h1{
+  /* test for small screen like phone 4em, then long screen and tall screen with vh and vw */
+  font-size: max(4em, max(8vw, 10vh)); /* Adjusts to screen width - 4em when like phone and small width but 10vw when long screen or 10vh when shorter and long*/ 
+  font-weight: 300;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h1.no-subheading{
+  margin-bottom: 0.8em;
+}
+
+section h2, section #title p{
+  font-size: max(2em, max(5vw, 5vh)); 
+  font-weight: 200;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0em;
+  margin-bottom: 1em;
+}
+
+section #title p{
+  margin-bottom: 0;
+}
+
+section .about b, section .about a{
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #404040;
+  text-decoration: none;
+}
+
+
+section .about, section .airhawks, section .climate{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 90%; 
+  /*When set width to say 70% it shifts that over to the left*/
+  /* also need to make sure inner elemnets arent bigger than this otherwise overflows */
+  /*Setting margin to auto means equal margin all round thus centering it*/
+  margin: auto;
+}
+
+section .contact{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%; 
+  margin: auto;
+}
+
+section .about p, section .airhawks p, section .climate p{
+  text-align: center;
+  margin: auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-size: max(1em, min(3vh, 3vw));
+  max-width: 60vw;
+}
+
+section .contact p{
+  font-size: min(2em, 8vw); /* Adjusts to screen width*/
+  font-weight: 200;
+  text-align: center;
+  margin: 1em;
+}
+
+.row{
+  position: relative;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+/* different sizes sometimes - could try say vw and then instead of margin (as relies on */
+/* div its in) could try transform like left and right */
+.airhawks img{
+  margin-top: 4vh;
+  width: 60%; 
+  z-index: 50;
+  width: max(250px, 45vw);
+}
+
+section .airhawks h3{
+  font-size: max(1.5em, 4vw); /* 1.5em for small phone and 4vw for large screen*/
+  text-transform: uppercase;
+  font-weight: 300;
+
+  color: black;
+  text-align: center;
+  font-style: italic;
+  position: relative;
+  margin: auto;
+  width: fit-content;
+}
+
+h3#scan{ 
+  /* before had margin left calculated as image was relative to % opposed to vw*/
+  margin-left: 0;
+}
+
+h3#sniff{
+  margin-right: 0;
+  margin-bottom: 1em;
+}
+
+p#scan{
+  margin: 0;
+  width: fit-content;
+}
+
+p#project{
+  margin-top: 3em;
+  text-align: center;
+  font-size: max(1em, min(4vh, 4vw));
+}
+
+div#img-row{
+  width: fit-content;
+  gap: 2vw;
+}
+
+.card-row{
+  margin: auto;
+  margin-top: 1.5em;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1.5em;
+  flex-wrap: wrap;
+}
+
+.play-on-hover{
+  position: relative;
+  width: min(315px, 60vw); /* means on a phone goes to pixels */
+  height: min(560px, 106.6vw);
+  background-size: cover; 
+  background-color: #ebebeb; /* in case image doesnt show*/
+  cursor: pointer;
+}
+
+div#login{
+  background-image: url("static/CC_login_still.png"); 
+}
+
+#login:hover {
+  background-image: url("static/CC_login.gif"); 
+}
+
+div#stats{
+  background-image: url("static/CC_stats_still.png");
+}
+
+#stats:hover{
+  background-image: url("static/CC_stats.gif"); 
+}
+
+div#friends{
+  background-image: url("static/CC_friends_still.png");
+}
+
+#friends:hover{
+  background-image: url("static/CC_friends.gif"); 
+}
+
+/* cant use flexbox for images as flexbox chnage height and width to variable? */
+
+.card-title-bar{
+  width: 100%;
+}
+
+.cards{
+  width: 85%;
+  margin: auto;
+}
+
+section .cards .text-card{
+  margin: 20px;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  cursor: pointer;
+  will-change: transform;
+}
+
+/* get 3d text card look */
+section .cards .text-card::before, 
+section .cards .text-card::after{
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  display: block;
+  background-color: #404040;
+  transition: all 250ms ease-in-out;
+  z-index: 110;
+}
+
+/* this is the left side line */
+section .cards .text-card::before {
+  width: 0.5px;
+  height: 100%;
+}
+
+/* this is the top line */
+section .cards .text-card::after {
+  height: 0.5px;
+  width: 100%;
+} 
+
+/* Moves line on hover*/
+section .cards .text-card:hover::before {
+  width: 1.5px;
+  left: -12px;
+  height: 98%;
+  /* background-color: red; */
+}
+
+/* Moves line on hover*/
+section .cards .text-card:hover::after {
+  top: -12px;
+  width: 98%;
+  height: 1.5px;
+  /* box-shadow: 0 118px #404040; */
+}
+
+
+section .cards .text-card h3{
+  font-size: max(1.5em, 3vw); 
+  text-align: center;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+section .cards .text-card h4{
+  font-size: max(1em, 2.2vw);
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
+section .cards .text-card p{
+  text-align: center;
+  margin: 1em;
+  font-size: max(1em, min(2.6vh, 2vw));
+
+}
+
+p.language{
+  width: 20%;
+  min-width: fit-content;
+  color: #404040;
+  font-size: 2em;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+p#java{
+  line-height: min(3em, 3vw);
+  font-size: max(1.5em, 2.5vw); 
+  text-emphasis: filled #f2c744;
+  text-emphasis-style: triangle;
+}
+
+p#c{
+  line-height: 3em;
+  font-size: max(1.5em, 2.5vw); 
+  text-emphasis: filled red;
+  text-emphasis-style: triangle;
+}
+
+p#python{
+  line-height: 3em;
+  font-size: max(1.5em, 2.5vw); 
+  text-emphasis: filled #0077B5;
+  text-emphasis-style: triangle;
+}
+
+.linkSpanner{
+  position:absolute; 
+  width:100%;
+  height:100%;
+  top:0;
+  left: 0;
+  z-index: 1;
+}
+
+section .cards #row-1{
+  position: relative;
+  flex: 1;
+  max-width: 80vw;
+  margin: 10px;
+  border: 1px solid #404040;
+}
+
+section .cards #row-2{
+  position: relative;
+  flex: 2;
+  max-width: 80vw;
+  margin: 10px;
+  border: 1px solid #404040;
+}
+
+section .cards #row-3{
+  position: relative;
+  flex: 3;
+  max-width: 80vw;
+  margin: 10px;
+  border: 1px solid #404040;
+}
+
+
+
+
+nav{
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+
+  /* so it isn't transparent */
+  background: #ebebeb;
+
+  width: 100%;
+  height: min(160px,20vh); /* double the  height set for boxes*/
+
+  /* keeps infront - higher number is infront */
+  z-index: 100;
+  
+}
+
+ul {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  display:flex;
+
+  }
+  ul li {
+    list-style:none;
+  }
+ul li a {
+  display:block;
+  position:relative;
+  width: min(min(80px,12vw), 10vh); /* 80px normally, keeps square if goes to short height or scale to portion of width if smaller*/
+  height: min(80px,10vh);
+  line-height: min(80px,10vh);
+  font-size: min(25px,5vh);
+  text-align:center;
+  text-decoration:none;
+  color:#404040;
+  margin: 0 min(30px, 6vw);
+  transition:.5s;
+  
+}
+ul li a span {
+  position:absolute;
+  transition: transform .5s;
+}
+ul li a span:nth-child(1),
+ul li a span:nth-child(3){
+  width:100%;
+  height:2px;
+  background:#404040;
+}
+ul li a span:nth-child(1) {
+  top:0;
+  left:0;
+  transform-origin: right;
+}
+ul li a:hover span:nth-child(1) {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition:transform .5s;
+}
+
+ul li a span:nth-child(3) {
+  bottom:0;
+  left:0;
+  transform-origin: left;
+}
+ul li a:hover span:nth-child(3) {
+  transform: scaleX(0);
+  transform-origin: right;
+  transition:transform .5s;
+}
+
+ul li a span:nth-child(2),
+ul li a span:nth-child(4){
+  width:2px;
+  height:100%;
+  background:#404040;
+}
+ul li a span:nth-child(2) {
+  top:0;
+  left:0;
+  transform:scale(0);
+  transform-origin: bottom;
+}
+ul li a:hover span:nth-child(2) {
+  transform: scale(1);
+  transform-origin: top;
+  transition:transform .5s;
+}
+ul li a span:nth-child(4) {
+  top:0;
+  right:0;
+  transform:scale(0);
+  transform-origin: top;
+}
+ul li a:hover span:nth-child(4) {
+  transform: scale(1);
+  transform-origin: bottom;
+  transition:transform .5s;
+}
+
+.github:hover {
+  color: #9e61e5;
+}
+.github:hover span { 
+  background: #9e61e5;
+}
+.home:hover {
+  color: #00c896;
+}
+.home:hover span { 
+  background: #00c896;
+}
+.projects:hover {
+  color: #ffc109;
+}
+.projects:hover span { 
+  background: #ffc109;
+}
+.linkedin:hover {
+  color: #0077B5;
+}
+.linkedin:hover span { 
+  background: #0077B5;
+}
+  
+.cursor{
+  position: fixed;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  transform: translate(-50%, -50%); /* centre up with mouse pointer*/
+  background-color: #ebebeb;
+  opacity: 0.15;
+  mix-blend-mode: difference; 
+  border-radius: 50%;
+  pointer-events: none;
+  transition: width 0.5s, height 0.5s; /* used when hover */
+  z-index: 110;
+}
+
+/* for when cursor hovers over */
+.cursor.grow{
+  width: 25px;
+  height: 25px;
+  transition: width 0.5s, height 0.5s;
+}
+
+.fade-in{
+  opacity: 0;
+  transition: opacity 250ms ease-in;
+}
+
+.fade-in.appear{
+  opacity: 1;
+}
+
+.un-selected{
+  opacity: 0.4;
+  transition: opacity 150ms ease-in;
+}
+
+.selected{
+  opacity: 1;
+}
+
+@keyframes in_out_1{
+  0% {color: #d5d5d5;}
+  10%{color: #ebebeb;}
+  40%{color: #d5d5d5;}
+  90%{color: #ebebeb;}
+}
+
+@keyframes in_out_2{
+  0%{color: #ebebeb;}
+  30%{color: #d5d5d5;}
+  50%{color: #ebebeb;}
+  80%{color: #d5d5d5;}
+}
+
+@media (prefers-color-scheme: dark) {
+  body{
+    background: #0a192f;
+    color: #a8b2d1;
+  }
+
+  nav{background: #0a192f;}
+
+  section .container{background-color: #0a192f;}
+
+  section .airhawks h3{color: #ccd6f6;}
+
+  ul li a {color:#ccd6f6;}
+
+  p.language{color: #a8b2d1;}
+
+  section .about b, section .about a{
+    color: #ccd6f6;}
+  
+  .airhawks img{
+    border: #a8b2d1 solid 1px;
+  }
+
+  section .cards .text-card h3{
+    color: #ccd6f6;}
+
+  section .cards .text-card::before, 
+  section .cards .text-card::after{
+    background-color: #ccd6f6;}
+
+  section .cards #row-1{
+    border: 1px solid #a8b2d1;}
+  
+  section .cards #row-2{
+    border: 1px solid #a8b2d1;}
+  
+  section .cards #row-3{
+    border: 1px solid #a8b2d1;}
+
+  ul li a span:nth-child(1),
+  ul li a span:nth-child(3){
+    background:#ccd6f6;}
+
+  ul li a span:nth-child(2),
+  ul li a span:nth-child(4){
+    background:#ccd6f6;}
+
+  @keyframes in_out_1{
+    0% {color: #233554;}
+    10%{color: #0a192f;}
+    40%{color: #233554;}
+    90%{color: #0a192f;}
+  }
+  
+  @keyframes in_out_2{
+    0%{color: #0a192f;}
+    30%{color: #233554;}
+    50%{color: #0a192f;}
+    80%{color: #233554;}
+  }
+
+}

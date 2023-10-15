@@ -131,6 +131,15 @@ section .about b, section .about a{
   text-decoration: none;
 }
 
+#project a{
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #02b88a;
+  text-decoration: none;
+}
+
+
+
 
 section .about, section .airhawks, section .climate{
   margin-top: 20px;

@@ -94,6 +94,8 @@ section .container{
 section #title{
   translate: 0 40px; 
   margin: 12vw;
+  transform: scale(0.85);
+  opacity: 0.6;
 }
 
 section h1{
@@ -145,7 +147,7 @@ section .contact{
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  width: 100%; 
+  width: fit-content; 
   margin: auto;
 }
 
@@ -447,6 +449,7 @@ ul {
     list-style:none;
   }
 ul li a {
+  transform: scale(0.8);
   display:block;
   position:relative;
   width: min(min(80px,12vw), 10vh); /* 80px normally, keeps square if goes to short height or scale to portion of width if smaller*/
